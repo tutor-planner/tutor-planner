@@ -1,7 +1,7 @@
 Welcome to tutor-planner!
 =========================
 
-Welcome to tutor-planner's documentation. The tutor planner is a tool used by the department
+Welcome to the documentation of the tutor planner. The tutor planner is a tool used by
 `Internet Network Architectures (INET)`_ of Technische Universität Berlin (TU Berlin) for the
 module *Einführung in die Programmierung* (introduction to programming). The module contains a two-week course to
 introduce new students in programming in C. Each day is filled with lectures, tutorials and computer exercises.
@@ -12,8 +12,6 @@ The project contains a planner that is using Gurobi_, a optimization solver for 
 the tutor plans.
 
 The plans can be exported to overall and individual tutor plans, room plans and student tickets.
-
-The documentation is currently a draft.
 
 If you are new to the tutor planner, you might want to look at :doc:`/contents/getting_started`. If you are searching for the
 usage of the planner, you should read :doc:`/contents/cli`.
