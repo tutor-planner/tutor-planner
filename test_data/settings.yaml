@@ -1,0 +1,252 @@
+# example settings used for testing
+
+# file names and directories
+# all paths are relative to the working directory
+paths:
+  # folders of tutor responses
+  tutor_responses:
+  - tutor_availability/first_replies # first week
+  - tutor_availability/second_replies # second week
+
+  # bookings file
+  bookings: all_bookings.csv
+  # additional rooms that students can use
+  bookings_additional: null
+
+  # contact data of course leaders
+  course_leaders: course_leaders.csv
+
+  # planner file
+  planner: planner.xlsx
+
+  # output folder of generated plans
+  plans: plans
+
+  # template folder
+  templates: templates
+
+  # output folders
+  pdf_output: pdf
+  html_output: html
+  png_output: png
+
+# time slots used in export and tutor parsing
+times: [10, 12, 14, 16]
+
+# days used for planning and output
+days:
+- 2016-10-17
+- 2016-10-18
+- 2016-10-19
+- 2016-10-20
+- 2016-10-21
+- 2016-10-24
+- 2016-10-25
+- 2016-10-26
+- 2016-10-27
+- 2016-10-28
+
+# forbidden time slots per day
+forbidden_timeslots:
+  2016-10-17: [10, 12, 14, 16]
+  2016-10-18: [12]
+  2016-10-19: [14]
+  2016-10-20: [16]
+  2016-10-21: [14]
+  2016-10-24: [16]
+  2016-10-25: [12]
+  2016-10-26: [14]
+  2016-10-27: [16]
+  2016-10-28: []
+
+# expected numbers are used for formatting in xlsx
+expected_number_of_rooms: 26
+expected_number_of_students: 1000
+
+# patterns evaluated from top to bottom for room type, projector and size requests
+room_patterns:
+# most rooms are for tutorials
+- pattern: '*'
+  type: tutorial
+  projector: 0
+  tutorial_size: 30
+# rooms with projectors
+- pattern: MAR *
+  projector: 1
+- pattern: FH *
+  projector: 1
+# exercise rooms
+- pattern: MAR 6.*
+  type: exerciseMAR
+- pattern: TEL *
+  type: exercise
+
+# external rooms, by matthias
+- pattern: MAR 4.033
+  type: tutorial
+  projector: 1
+  capacity: 32
+- pattern: MAR 6.004
+  type: tutorial
+  projector: 1
+  capacity: 25
+- pattern: MAR 6.011
+  type: tutorial
+  projector: 1
+  capacity: 25
+
+# imported room capacities from import
+- pattern: A 060
+  capacity: 78
+- pattern: EMH 025
+  capacity: 48
+- pattern: EW 114
+  capacity: 30
+- pattern: EW 184
+  capacity: 20
+- pattern: EW 217
+  capacity: 26
+- pattern: FH 301
+  capacity: 30
+- pattern: FH 302
+  capacity: 40
+- pattern: FH 311
+  capacity: 40
+- pattern: FH 312
+  capacity: 30
+- pattern: FH 313
+  capacity: 30
+- pattern: FH 314
+  capacity: 30
+- pattern: FH 315
+  capacity: 30
+- pattern: FH 316
+  capacity: 30
+- pattern: H 3002
+  capacity: 40
+- pattern: H 3003A
+  capacity: 20
+- pattern: H 3004
+  capacity: 50
+- pattern: H 3025
+  capacity: 32
+- pattern: HFT-TA 131
+  capacity: 138
+- pattern: MA 142
+  capacity: 18
+- pattern: MA 143
+  capacity: 24
+- pattern: MA 541
+  capacity: 16
+- pattern: MA 542
+  capacity: 16
+- pattern: MA 544
+  capacity: 27
+- pattern: MA 545
+  capacity: 20
+- pattern: MA 548
+  capacity: 22
+- pattern: MA 549
+  capacity: 32
+- pattern: MA 550
+  capacity: 32
+- pattern: MA 551
+  capacity: 22
+- pattern: MA 642
+  capacity: 22
+- pattern: MA 644
+  capacity: 22
+- pattern: MA 645
+  capacity: 20
+- pattern: MA 648
+  capacity: 22
+- pattern: MA 649
+  capacity: 34
+- pattern: MA 650
+  capacity: 34
+- pattern: MA 651
+  capacity: 24
+- pattern: MA 742
+  capacity: 20
+- pattern: MA 744
+  capacity: 20
+- pattern: MA 751
+  capacity: 24
+- pattern: MA 848
+  capacity: 20
+- pattern: MA 850
+  capacity: 30
+- pattern: MA 851
+  capacity: 22
+- pattern: MAR 0.001
+  capacity: 30
+- pattern: MAR 0.002
+  capacity: 40
+- pattern: MAR 0.003
+  capacity: 24
+- pattern: MAR 0.007
+  capacity: 30
+- pattern: MAR 0.008
+  capacity: 30
+- pattern: MAR 0.009
+  capacity: 30
+- pattern: MAR 0.010
+  capacity: 24
+- pattern: MAR 0.011
+  capacity: 64
+- pattern: MAR 0.013
+  capacity: 18
+- pattern: MAR 0.015
+  capacity: 24
+- pattern: MAR 0.016
+  capacity: 40
+- pattern: MAR 0.017
+  capacity: 24
+- pattern: MAR 2.068
+  capacity: 30
+- pattern: MAR 4.062
+  capacity: 18
+- pattern: MAR 4.063
+  capacity: 32
+- pattern: MAR 4.064
+  capacity: 40
+- pattern: MAR 4.065
+  capacity: 16
+- pattern: MAR 6.001
+  capacity: 25
+- pattern: MAR 6.029
+  capacity: 13
+- pattern: MAR 6.057
+  capacity: 24
+- pattern: TEL 103
+  capacity: 12
+  projector: 1
+- pattern: TEL 106li
+  capacity: 24
+  projector: 0
+- pattern: TEL 106re
+  capacity: 24
+  projector: 1
+- pattern: TEL 109
+  capacity: 12
+  projector: 1
+  type: grading
+- pattern: TEL 206li
+  capacity: 24
+  projector: 0
+- pattern: TEL 206re
+  capacity: 24
+  projector: 1
+
+optimization_parameters:
+  bounds:
+    task_contingency: 0.95
+    maximal_work_spread: 1.5
+    min_happiness: 0.9
+    cube_happiness: 0.95
+    minimal_mar_tel_hopping: 1.05
+    best_rooms: 0.999
+    tutor_room_stability: 0.9
+  time_limits:
+    short: 20
+    long: 300
